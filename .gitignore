@@ -1,0 +1,10 @@
+# Dane prywatne – zostają tylko na dysku
+
+# Zdjęcia (w repo zostaje tylko podpowiedź i przykładowe zdjęcie)
+zdjecia/*
+!zdjecia/TU_WRZUC_ZDJECIA.txt
+!zdjecia/wiewiorka.png
+
+# Zapis gry: wyniki, stan i archiwa
+zapis/*
+!zapis/.gitkeep
