@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <title>Panel prowadzącego – Teleturniej</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="admin">
+
+<header class="admin-top">
+  <h1>🎙️ Panel prowadzącego <small id="a-title"></small></h1>
+  <div class="top-actions">
+    <label class="theme-pick" title="Wygląd ekranu TV">🎨
+      <select id="set-theme">
+        <option value="klasyczny">Klasyczny (bordo)</option>
+        <option value="rzutnik">Rzutnik / jasna sala</option>
+        <option value="gala">Złota gala</option>
+        <option value="konfetti">Urodzinowe konfetti</option>
+      </select>
+    </label>
+    <button id="btn-names" class="btn small">✏️ Nazwy drużyn</button>
+    <span id="save-badge" class="badge"></span>
+    <button id="btn-open-tv" class="btn primary">📺 Otwórz ekran TV</button>
+  </div>
+</header>
+
+<div class="admin-grid">
+  <!-- ===== Lewa kolumna: punkty, historia, zapis ===== -->
+  <aside class="side">
+    <div class="team-card" data-team="0">
+      <div class="team-head"><span class="team-name" title="Kliknij, aby zmienić nazwę"></span><span class="team-score"></span></div>
+      <div class="pts-buttons">
+        <button class="btn" data-pts="1">+1</button>
+        <button class="btn" data-pts="2">+2</button>
+        <button class="btn" data-pts="3">+3</button>
+        <button class="btn" data-pts="5">+5</button>
+      </div>
+      <div class="custom-pts">
+        <input type="number" value="10" step="1" aria-label="Własna liczba punktów">
+        <button class="btn btn-custom">Dodaj</button>
+      </div>
+    </div>
+
+    <div class="team-card" data-team="1">
+      <div class="team-head"><span class="team-name" title="Kliknij, aby zmienić nazwę"></span><span class="team-score"></span></div>
+      <div class="pts-buttons">
+        <button class="btn" data-pts="1">+1</button>
+        <button class="btn" data-pts="2">+2</button>
+        <button class="btn" data-pts="3">+3</button>
+        <button class="btn" data-pts="5">+5</button>
+      </div>
+      <div class="custom-pts">
+        <input type="number" value="10" step="1" aria-label="Własna liczba punktów">
+        <button class="btn btn-custom">Dodaj</button>
+      </div>
+    </div>
+
+    <section class="box">
+      <h3>Historia <button id="btn-undo" class="btn small">↶ Cofnij ostatnie</button></h3>
+      <ol id="log" class="log"></ol>
+    </section>
+
+    <section class="box">
+      <h3>Zapis gry</h3>
+      <p id="save-status" class="save-status"></p>
+      <div class="btn-row">
+        <button id="btn-choose-dir" class="btn">📁 Wybierz folder zapisu</button>
+        <button id="btn-resume" class="btn primary" hidden>🔓 Wznów zapis</button>
+        <button id="btn-download" class="btn">⬇ Pobierz CSV</button>
+        <label class="btn">⬆ Wczytaj z pliku<input type="file" id="file-load" accept=".csv,.json" hidden></label>
+        <button id="btn-reset" class="btn danger">Reset gry</button>
+      </div>
+    </section>
+
+    <details class="box">
+      <summary>⚙️ Ustawienia i skróty</summary>
+      <label class="field">Tytuł na tablicy wyników <input id="set-title" type="text"></label>
+      <ul class="keys-help">
+        <li><kbd>1</kbd> / <kbd>2</kbd> – +1 pkt dla drużyny 1 / 2</li>
+        <li><kbd>Ctrl</kbd>+<kbd>Z</kbd> – cofnij ostatni wpis</li>
+        <li>Akronimy: <kbd>Spacja</kbd> – kolejny krok</li>
+        <li>Licytacja: <kbd>M</kbd> – muzyka start / pauza, <kbd>←</kbd>/<kbd>→</kbd> – tekst na TV (karaoke)</li>
+        <li>Przysłowia: wpisz spółgłoskę lub Ą/Ę/Ó, <kbd>←</kbd>/<kbd>→</kbd> – wybór drużyny</li>
+        <li>Bomba: <kbd>Enter</kbd> – odgadnięte, <kbd>Backspace</kbd> – nieodgadnięte</li>
+        <li>Kalambury: <kbd>Spacja</kbd> – start / pauza, <kbd>Enter</kbd> – odgadnięte, <kbd>Backspace</kbd> – pomiń, <kbd>←</kbd>/<kbd>→</kbd> – drużyna</li>
+        <li>Zdjęcia: <kbd>Spacja</kbd> – losowy kafelek, <kbd>Enter</kbd> – całe zdjęcie, <kbd>←</kbd>/<kbd>→</kbd> – poprzednie / następne</li>
+        <li>Czółko: <kbd>Spacja</kbd> – pokaż piosenkę / pauza, <kbd>←</kbd>/<kbd>→</kbd> – wybór drużyny</li>
+      </ul>
+    </details>
+  </aside>
+
+  <!-- ===== Prawa kolumna: konkurencje ===== -->
+  <main class="main">
+    <nav class="tabs">
+      <span class="tabs-label">Na ekranie TV:</span>
+      <button class="tab" data-view="score">🏆 Wyniki</button>
+      <button class="tab" data-view="przyslowia">1 · 📜 Przysłowia</button>
+      <button class="tab" data-view="licytacja" data-round="1">2 · 🎤 Licytacja I</button>
+      <button class="tab" data-view="bomba">3 · 💣 Bomba</button>
+      <button class="tab" data-view="akronimy">4 · 🔤 Akronimy</button>
+      <button class="tab" data-view="licytacja" data-round="2">5 · 🎤 Licytacja II</button>
+      <button class="tab" data-view="kalambury">6 · 🎭 Kalambury</button>
+      <button class="tab" data-view="czolko">8 · 🎵 Czółko</button>
+      <button class="tab tab-extra" data-view="zdjecia">★ 📸 Zdjęcia mamy</button>
+    </nav>
+
+    <section id="panel-score" class="panel">
+      <h2>Tablica wyników</h2>
+      <p>Telewizor pokazuje duże wyniki obu drużyn albo tabelę punktacji. Punkty dodajesz po lewej albo klawiszami <kbd>1</kbd> / <kbd>2</kbd>.</p>
+      <div class="btn-row"><button id="btn-table" class="btn"></button></div>
+      <table id="score-table" class="score-table"></table>
+    </section>
+
+    <!-- Licytacja wersów -->
+    <section id="panel-licytacja" class="panel">
+      <h2 id="lic-title"></h2>
+      <div class="akr-current lic-song">
+        <div id="lic-song" class="lic-song-title"></div>
+        <div id="lic-max" class="akr-state on"></div>
+      </div>
+      <div class="prz-team">
+        <span id="lic-start-info"></span>
+        <span class="hint">Przy remisie / zmianie:</span>
+        <button class="team-pick lic-start-pick" data-team="0"></button>
+        <button class="team-pick lic-start-pick" data-team="1"></button>
+      </div>
+
+      <div class="lic-bids-row">
+        <div class="lic-bidbox" data-team="0"><b class="lic-bidname"></b><input type="number" min="1" step="1"><button class="btn lic-bid-btn">Licytuj</button></div>
+        <div class="lic-bidbox" data-team="1"><b class="lic-bidname"></b><input type="number" min="1" step="1"><button class="btn lic-bid-btn">Licytuj</button></div>
+      </div>
+      <div id="lic-bids" class="lic-bids"></div>
+      <div id="lic-msg" class="prz-msg"></div>
+
+      <div class="btn-row">
+        <button id="lic-undo-bid" class="btn">↶ Cofnij ofertę</button>
+        <button id="lic-close" class="btn primary">🔨 Koniec licytacji – śpiewają</button>
+        <button id="lic-ok" class="btn ok-btn"></button>
+        <button id="lic-fail" class="btn danger"></button>
+        <button id="lic-next" class="btn primary">Następna piosenka ▶</button>
+      </div>
+
+      <div id="kar-bar" class="kar-bar">
+        <div class="btn-row">
+          <button id="kar-toggle" class="btn primary"></button>
+          <button id="kar-prev" class="btn">◀ Poprzednie <kbd>←</kbd></button>
+          <button id="kar-next" class="btn primary">Następne ▶ <kbd>→</kbd></button>
+        </div>
+        <div id="kar-info" class="hint"></div>
+      </div>
+
+      <div class="lic-extra">
+        <div class="lic-lyrics-box">
+          <h3>📝 Tekst <small id="lic-lyrics-info"></small></h3>
+          <div id="lic-lyrics" class="lic-lyrics"></div>
+        </div>
+        <div class="lic-audio-box">
+          <h3>🎵 Muzyka <small>(gra z tego komputera)</small></h3>
+          <div class="btn-row">
+            <button id="lic-play" class="btn primary">▶ Puść</button>
+            <button id="lic-stop" class="btn">⏹ Stop</button>
+          </div>
+          <audio id="lic-audio" controls preload="auto"></audio>
+          <div id="lic-audio-info" class="hint"></div>
+          <div class="btn-row">
+            <label class="btn small">⬆ Wgraj mp3<input type="file" id="lic-mp3" accept="audio/*,.mp3" hidden></label>
+            <button id="lic-mp3-del" class="btn small danger">Usuń wgrany plik</button>
+          </div>
+        </div>
+      </div>
+
+      <h3>Piosenki w tej rundzie <small>(kliknij, aby wybrać; ↺ przywraca jako „do wzięcia”)</small></h3>
+      <ol id="lic-list" class="pick-list"></ol>
+    </section>
+
+    <!-- Bomba -->
+    <section id="panel-bomba" class="panel">
+      <h2>💣 Bomba – urodziny</h2>
+      <div class="kal-current">
+        <div class="label" id="bomba-label">Pytanie:</div>
+        <div id="bomba-q" class="bomba-q-admin"></div>
+        <div id="bomba-a" class="bomba-a"></div>
+        <div class="btn-row">
+          <button id="bomba-ok" class="btn ok-btn">✔ Odgadnięte <kbd>Enter</kbd></button>
+          <button id="bomba-fail" class="btn danger">✖ Nieodgadnięte <kbd>Backspace</kbd></button>
+        </div>
+      </div>
+      <div class="btn-row">
+        <label class="inline">Punkty za każdą poprawną odpowiedź <input type="text" inputmode="decimal" id="bomba-points" size="4" title="Można wpisać ułamek, np. 0,5 – suma zaokrąglana w dół"></label>
+      </div>
+      <div id="bomba-count" class="bomba-count"></div>
+      <div class="btn-row">
+        <span><b>💥 Wybuch! Bomba wybuchła u:</b></span>
+        <button class="btn team-btn bomba-boom-btn" data-team="0"></button>
+        <button class="btn team-btn bomba-boom-btn" data-team="1"></button>
+        <button id="bomba-new" class="btn">↺ Nowa runda bomby</button>
+      </div>
+      <div id="bomba-msg" class="prz-msg"></div>
+      <p class="hint">Drużyna, u której wybuchnie bomba, dostaje 0 pkt. Przeciwna drużyna dostaje ustawioną liczbę punktów za każdą poprawną odpowiedź w rundzie (wynik zaokrąglany w dół, np. 13 × 0,5 = 6 pkt). Aplikacja nie odtwarza dźwięków (tykanie i wybuch: głośniczek).</p>
+      <h3>Pytania <small>(✔ / ✖ / ↺ – poprawianie oznaczeń)</small></h3>
+      <ol id="bomba-list" class="pick-list plain kal-list"></ol>
+    </section>
+
+    <!-- Akronimy -->
+    <section id="panel-akronimy" class="panel">
+      <div class="akr-current">
+        <div class="akr-skrot" id="akr-skrot"></div>
+        <div class="akr-full" id="akr-full"></div>
+        <div class="akr-state" id="akr-state"></div>
+      </div>
+      <div class="btn-row">
+        <button id="akr-show" class="btn">👁 Pokaż skrót</button>
+        <button id="akr-reveal" class="btn">✨ Odsłoń rozwinięcie</button>
+        <button id="akr-hide" class="btn">🙈 Ukryj</button>
+        <button id="akr-next" class="btn primary">Następny ▶</button>
+      </div>
+      <div class="btn-row">
+        <button id="akr-award-0" class="btn team-btn"></button>
+        <button id="akr-award-1" class="btn team-btn"></button>
+        <label class="inline">Punkty za akronim <input type="number" id="akr-points" min="0" step="1"></label>
+      </div>
+      <p class="hint"><kbd>Spacja</kbd>: pokaż skrót → odsłoń rozwinięcie → następny (pomija te, które już były). Punkty przyznajesz po lewej.</p>
+      <h3>Wszystkie akronimy <small>(kliknij, aby wybrać; ↺ przywraca jako „do wzięcia”)</small></h3>
+      <ol id="akr-list" class="pick-list"></ol>
+    </section>
+
+    <!-- Przysłowia -->
+    <section id="panel-przyslowia" class="panel">
+      <div class="prz-host">
+        <div class="label"><b id="prz-round"></b> · Hasło (widzi tylko prowadzący):</div>
+        <div id="prz-text" class="prz-text"></div>
+        <div id="prz-mask" class="prz-mask"></div>
+      </div>
+
+      <div class="prz-team">
+        <span>Zgaduje:</span>
+        <button class="team-pick prz-pick" data-team="0"></button>
+        <button class="team-pick prz-pick" data-team="1"></button>
+        <span class="hint">(<kbd>←</kbd> / <kbd>→</kbd>)</span>
+      </div>
+
+      <div id="prz-keys" class="keys"></div>
+      <div id="prz-msg" class="prz-msg"></div>
+
+      <div class="btn-row">
+        <label class="inline">Punkty za każde wystąpienie litery <input type="number" id="prz-value" min="0" step="1"></label>
+        <label class="inline">Premia za odgadnięcie hasła <input type="number" id="prz-bonus" min="0" step="1"></label>
+      </div>
+      <div class="btn-row">
+        <button id="prz-solve-0" class="btn"></button>
+        <button id="prz-solve-1" class="btn"></button>
+        <button id="prz-reveal" class="btn">Odsłoń hasło (bez punktów)</button>
+        <button id="prz-next" class="btn primary">Następne przysłowie ▶</button>
+      </div>
+
+      <h3>Wszystkie przysłowia <small>(kliknij, aby wybrać; ↺ przywraca jako „do wzięcia”)</small></h3>
+      <ol id="prz-list" class="pick-list"></ol>
+    </section>
+
+    <!-- Kalambury -->
+    <section id="panel-kalambury" class="panel">
+      <div class="czo-head">
+        <div class="prz-team">
+          <span>Pokazuje:</span>
+          <button class="team-pick kal-pick" data-team="0"></button>
+          <button class="team-pick kal-pick" data-team="1"></button>
+          <span id="kal-setinfo" class="hint"></span>
+          <button id="kal-swap" class="btn small">⇄ Zamień zestawy</button>
+        </div>
+        <div id="kal-counts" class="czo-counts"></div>
+      </div>
+
+      <div class="kal-top">
+        <div class="timer-admin" id="kal-time">2:00</div>
+        <div class="kal-current">
+          <div class="label">Hasło do pokazania (TV go nie pokazuje):</div>
+          <div id="kal-word" class="kal-word"></div>
+          <div class="btn-row">
+            <button id="kal-ok" class="btn ok-btn">✔ Odgadnięte <kbd>Enter</kbd></button>
+            <button id="kal-fail" class="btn danger">✖ Nieodgadnięte / pomiń <kbd>Backspace</kbd></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="btn-row">
+        <button id="kal-start" class="btn primary">▶ Start</button>
+        <button id="kal-reset" class="btn">↺ Reset czasu</button>
+        <label class="inline">Czas (sekundy) <input type="number" id="kal-dur" min="10" step="10"></label>
+        <label class="inline">Punkty za hasło <input type="number" id="kal-points" min="0" step="1"></label>
+        <button id="kal-summary" class="btn"></button>
+      </div>
+      <p class="hint"><kbd>Spacja</kbd>: start / pauza zegara. Każde „Odgadnięte” od razu dodaje punkty drużynie. Na liście kliknij ✔ / ✖ / ↺, żeby poprawić oznaczenie.</p>
+
+      <h3 id="kal-list-title"></h3>
+      <ol id="kal-list" class="pick-list plain kal-list"></ol>
+    </section>
+
+    <!-- Zdjęcia mamy (konkurencja dodatkowa) -->
+    <section id="panel-zdjecia" class="panel">
+      <h2>📸 Zdjęcia mamy <small class="hint">– co to za uroczystość / miejsce? (pytanie zadajesz sam)</small></h2>
+      <p id="zdj-empty" class="hint">Brak zdjęć. Wrzuć pliki do folderu <code>zdjecia/</code> i dopisz je w <code>data/pytania.js</code> (sekcja <code>zdjecia</code>).</p>
+      <div id="zdj-work">
+        <div class="zdj-admin">
+          <div class="zdj-left">
+            <div class="zdj-head"><b id="zdj-title"></b> · <span id="zdj-podpis"></span> · <span id="zdj-status"></span></div>
+            <div id="zdj-preview" class="zdj-preview">
+              <div class="zdj-frame"><img alt=""><div class="zdj-grid"></div></div>
+              <p id="zdj-missing" class="prz-msg warn" hidden>Nie znaleziono pliku zdjęcia – sprawdź nazwę w data/pytania.js.</p>
+            </div>
+            <p class="hint">Kliknij kafelek, żeby go odkryć (ponowne kliknięcie zakrywa). Ty widzisz całe zdjęcie, TV – tylko odkryte kafelki.</p>
+          </div>
+          <div class="zdj-side">
+            <button id="zdj-random" class="btn primary big">🎲 Odkryj losowy kafelek <kbd>Spacja</kbd></button>
+            <button id="zdj-all" class="btn">✨ Odsłoń całe zdjęcie <kbd>Enter</kbd></button>
+            <button id="zdj-hide" class="btn">🙈 Zakryj wszystko</button>
+            <button id="zdj-caption" class="btn"></button>
+            <div class="zdj-gridset">
+              <b>Kafelki dla tego zdjęcia</b>
+              <label class="inline">poziomo <input type="number" id="zdj-cols" min="1" max="15" step="1"></label>
+              <label class="inline">pionowo <input type="number" id="zdj-rows" min="1" max="15" step="1"></label>
+            </div>
+            <div class="btn-row">
+              <button id="zdj-prev" class="btn">◀ Poprzednie <kbd>←</kbd></button>
+              <button id="zdj-next" class="btn primary">Następne ▶ <kbd>→</kbd></button>
+            </div>
+          </div>
+        </div>
+        <h3>Wszystkie zdjęcia <small>(kliknij, aby wybrać)</small></h3>
+        <div id="zdj-list" class="zdj-list"></div>
+      </div>
+    </section>
+
+    <!-- Czółko -->
+    <section id="panel-czolko" class="panel">
+      <div class="czo-head">
+        <div class="prz-team">
+          <span>Zgaduje:</span>
+          <button class="team-pick czo-pick" data-team="0"></button>
+          <button class="team-pick czo-pick" data-team="1"></button>
+          <span class="hint">(<kbd>←</kbd> / <kbd>→</kbd>, zmienia się samo po każdej piosence)</span>
+        </div>
+        <div id="czo-counts" class="czo-counts"></div>
+      </div>
+
+      <div id="czo-stage" class="czo-stage"></div>
+      <div class="btn-row">
+        <button id="czo-show" class="btn primary">▶ Pokaż piosenkę i start czasu</button>
+        <button id="czo-pause" class="btn">⏸ Pauza</button>
+        <button id="czo-ok" class="btn ok-btn">✔ Odgadli</button>
+        <button id="czo-fail" class="btn danger">✖ Nie odgadli</button>
+        <button id="czo-cancel" class="btn">↩ Wróć do numerków (bez wyniku)</button>
+      </div>
+
+      <div id="czo-grid" class="czo-grid"></div>
+
+      <div class="btn-row">
+        <label class="inline">Punkty za piosenkę <input type="number" id="czo-points" min="0" step="1"></label>
+        <label class="inline">Czas na piosenkę (s) <input type="number" id="czo-dur" min="5" step="5"></label>
+        <button id="czo-shuffle" class="btn">🔀 Przetasuj numerki</button>
+      </div>
+
+      <h3>Piosenki pod numerkami <small>(widzi tylko prowadzący; ↺ przywraca jako „do wzięcia”)</small></h3>
+      <ol id="czo-list" class="pick-list plain"></ol>
+    </section>
+  </main>
+</div>
+
+<!-- Dialog: nazwy drużyn -->
+<dialog id="names-dialog" class="names-dialog">
+  <form method="dialog">
+    <h2>🎉 Nazwy drużyn</h2>
+    <p class="hint">Nazwy pojawią się na telewizorze. Zmienisz je później przyciskiem „✏️ Nazwy drużyn”.</p>
+    <label class="field">Drużyna 1 <input id="dlg-name-0" type="text" maxlength="30"><input id="dlg-color-0" type="color"></label>
+    <label class="field">Drużyna 2 <input id="dlg-name-1" type="text" maxlength="30"><input id="dlg-color-1" type="color"></label>
+    <div class="btn-row right">
+      <button class="btn" value="cancel">Anuluj</button>
+      <button class="btn primary" value="ok">Zaczynamy! 🎬</button>
+    </div>
+  </form>
+</dialog>
+
+<script src="data/pytania.js"></script>
+<script src="js/state.js"></script>
+<script src="js/zapis.js"></script>
+<script src="js/admin.js"></script>
+</body>
+</html>

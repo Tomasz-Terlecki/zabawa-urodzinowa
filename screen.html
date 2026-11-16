@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <title>Teleturniej – ekran</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="screen">
+
+<div id="tv">
+  <header class="tv-top">
+    <div class="tv-team" data-team-box="0"><span class="tv-name" data-name="0"></span><span class="tv-score" data-score="0"></span></div>
+    <div class="tv-title" id="tv-title"></div>
+    <div class="tv-team" data-team-box="1"><span class="tv-name" data-name="1"></span><span class="tv-score" data-score="1"></span></div>
+  </header>
+  <main id="stage"></main>
+  <div id="toast" class="toast"></div>
+</div>
+
+<div id="start-overlay">
+  <div>
+    <div class="ov-big">📺 Kliknij tutaj</div>
+    <div class="ov-small">aby włączyć pełny ekran i dźwięk<br>(później: dwuklik = pełny ekran, Esc = wyjście)</div>
+  </div>
+</div>
+
+<script src="data/pytania.js"></script>
+<script src="js/state.js"></script>
+<script src="js/screen.js"></script>
+</body>
+</html>

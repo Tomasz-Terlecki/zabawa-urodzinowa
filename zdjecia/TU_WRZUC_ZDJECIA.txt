@@ -1,0 +1,2 @@
+Tu wrzuć zdjęcia mamy (jpg/png), a potem dopisz je w data/pytania.js w sekcji "zdjecia", np.:
+  { plik: 'zdjecia/01.jpg', podpis: 'Wesele, 1990', kolumny: 4, wiersze: 3 },

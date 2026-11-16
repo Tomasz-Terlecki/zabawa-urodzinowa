@@ -1,0 +1,204 @@
+{
+  "ver": 3,
+  "showTable": false,
+  "rev": 180,
+  "title": "Teleturniej urodzinowy",
+  "namesConfirmed": true,
+  "teams": [
+    {
+      "name": "Drużyna A",
+      "color": "#26d932"
+    },
+    {
+      "name": "Drużyna B",
+      "color": "#eb1ec6"
+    }
+  ],
+  "log": [
+    {
+      "id": "1794140810967-o41un",
+      "t": 1794140810967,
+      "team": 0,
+      "pts": 4,
+      "comp": "Przysłowia",
+      "desc": "litera Z (2×)",
+      "letter": "Z",
+      "prz": 0
+    },
+    {
+      "id": "1794140817970-zokj0",
+      "t": 1794140817970,
+      "team": 0,
+      "pts": 0,
+      "comp": "Przysłowia",
+      "desc": "litera Ń (0×)",
+      "letter": "Ń",
+      "prz": 0
+    },
+    {
+      "id": "1794140861282-50s5a",
+      "t": 1794140861282,
+      "team": 1,
+      "pts": 5,
+      "comp": "Przysłowia",
+      "desc": "odgadnięte hasło nr 2"
+    },
+    {
+      "id": "1794144433396-ghwy9",
+      "t": 1794144433396,
+      "team": 0,
+      "pts": 2,
+      "comp": "Kalambury",
+      "desc": "hasło: pszczoła",
+      "kal": {
+        "set": "A",
+        "i": 0
+      }
+    },
+    {
+      "id": "1794144435844-wct22",
+      "t": 1794144435844,
+      "team": 0,
+      "pts": 2,
+      "comp": "Kalambury",
+      "desc": "hasło: tort urodzinowy",
+      "kal": {
+        "set": "A",
+        "i": 2
+      }
+    },
+    {
+      "id": "1794144438259-0kdb4",
+      "t": 1794144438259,
+      "team": 0,
+      "pts": 2,
+      "comp": "Kalambury",
+      "desc": "hasło: strażak",
+      "kal": {
+        "set": "A",
+        "i": 3
+      }
+    },
+    {
+      "id": "1794144439588-za717",
+      "t": 1794144439588,
+      "team": 0,
+      "pts": 2,
+      "comp": "Kalambury",
+      "desc": "hasło: piłka nożna",
+      "kal": {
+        "set": "A",
+        "i": 5
+      }
+    },
+    {
+      "id": "1794144440180-8h0wz",
+      "t": 1794144440180,
+      "team": 0,
+      "pts": 2,
+      "comp": "Kalambury",
+      "desc": "hasło: latarnia morska",
+      "kal": {
+        "set": "A",
+        "i": 6
+      }
+    }
+  ],
+  "view": "przyslowia",
+  "akr": {
+    "index": 2,
+    "showSkrot": true,
+    "showFull": false,
+    "seen": [],
+    "points": 2
+  },
+  "prz": {
+    "index": 1,
+    "team": 0,
+    "guessed": [],
+    "solved": true,
+    "msg": {
+      "id": 1794140861282,
+      "text": "Drużyna B odgaduje hasło! +5 pkt",
+      "kind": "solve"
+    },
+    "seen": [
+      1
+    ],
+    "pointValue": 2,
+    "solveBonus": 7
+  },
+  "kal": {
+    "timer": {
+      "duration": 120,
+      "running": false,
+      "endsAt": 0,
+      "left": 120000
+    },
+    "team": 0,
+    "sets": [
+      "A",
+      "B"
+    ],
+    "results": {
+      "A": {
+        "0": "ok",
+        "1": "fail",
+        "2": "ok",
+        "3": "ok",
+        "4": "fail",
+        "5": "ok",
+        "6": "ok"
+      },
+      "B": {}
+    },
+    "points": 1,
+    "showSummary": false
+  },
+  "lic": {
+    "round": 1,
+    "song": 0,
+    "phase": "bidding",
+    "bids": [],
+    "startManual": null,
+    "seen": [
+      0
+    ],
+    "msg": null
+  },
+  "bomba": {
+    "results": {},
+    "used": [],
+    "phase": "play",
+    "loser": null,
+    "award": 0
+  },
+  "czo": {
+    "order": [
+      1,
+      11,
+      2,
+      7,
+      5,
+      9,
+      8,
+      6,
+      3,
+      4,
+      10,
+      0
+    ],
+    "results": {},
+    "current": null,
+    "phase": "board",
+    "team": 0,
+    "points": 3,
+    "timer": {
+      "duration": 45,
+      "running": false,
+      "endsAt": 0,
+      "left": 45000
+    },
+    "msg": null
+  }
+}
