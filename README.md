@@ -18,6 +18,7 @@ Oba okna synchronizują się między sobą w obrębie jednej przeglądarki na ty
 | Ścieżka | Zawartość |
 |---|---|
 | `admin.html` | Panel prowadzącego (od tego zaczynasz) |
+| `index.html` | Tylko przekierowanie na `admin.html` (dla krótszego adresu wersji online) |
 | `screen.html` | Ekran na telewizor |
 | `data/pytania.js` | **Cała treść gry**: przysłowia, piosenki do licytacji i czółka, pytania do bomby, akronimy, hasła do kalamburów, lista zdjęć. Tu się edytuje pytania. |
 | `zdjecia/` | Zdjęcia do konkurencji „Zdjęcia mamy” (trzeba je też dopisać w `data/pytania.js`) |
@@ -34,11 +35,26 @@ Oba okna synchronizują się między sobą w obrębie jednej przeglądarki na ty
 
 Pełny opis wszystkich konkurencji, skrótów klawiszowych, zapisu i wznawiania gry jest w **[INSTRUKCJA.md](INSTRUKCJA.md)**.
 
+## Wersja online (GitHub Pages)
+
+Grę można też otworzyć z dowolnego urządzenia, bez pobierania plików:
+
+**https://tomasz-terlecki.github.io/zabawa-urodzinowa/**
+
+Ten adres przekierowuje na panel prowadzącego. Strona aktualizuje się sama po każdym pushu na gałąź `main`. Działa tylko wtedy, gdy GitHub Pages jest włączone w ustawieniach repozytorium (Settings → Pages → Deploy from a branch → `main`, `/ (root)`).
+
+Czym różni się od wersji z dysku:
+
+- **Strona jest publiczna.** Każdy, kto zna adres, zobaczy grę razem z odpowiedziami z `data/pytania.js`.
+- **Nie ma zdjęć mamy.** Folder `zdjecia/` nie trafia do repozytorium (poza przykładowym zdjęciem), więc konkurencję „Zdjęcia mamy” najlepiej prowadzić z wersji z dysku.
+- **Każde urządzenie zaczyna od zera.** Stan gry, wgrane mp3 i wybrany folder zapisu są przechowywane w przeglądarce danego urządzenia. Na nowym komputerze trzeba je ustawić od nowa.
+- **Do otwarcia strony potrzebny jest internet.** Po załadowaniu gra nadal niczego nie wysyła.
+
 ## Prywatność
 
-Aplikacja **nie łączy się z internetem**. Nie ma serwera, kont ani analityki, nie pobiera zewnętrznych bibliotek ani czcionek i niczego nie wysyła. Wszystkie pliki (skrypty, style, zdjęcia, muzyka) są wczytywane lokalnie z dysku, więc gra działa też bez Wi-Fi.
+Aplikacja **niczego nie wysyła do internetu**. Nie ma serwera, kont ani analityki i nie pobiera zewnętrznych bibliotek ani czcionek. Uruchomiona z dysku wczytuje wszystkie pliki (skrypty, style, zdjęcia, muzykę) lokalnie, więc działa też bez Wi-Fi. W wersji online internet jest potrzebny tylko do pobrania plików strony z GitHuba.
 
-Dane zostają na tym komputerze:
+Dane zostają na urządzeniu, na którym gra jest uruchomiona:
 
 - bieżący stan gry jest w pamięci przeglądarki (`localStorage`);
 - wgrane pliki mp3 i wskazany folder zapisu przeglądarka pamięta lokalnie (`IndexedDB`);
