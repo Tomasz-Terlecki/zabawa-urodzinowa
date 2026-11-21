@@ -71,6 +71,10 @@ Zdjęcie na TV jest zakryte numerowanymi kafelkami, które odkrywasz stopniowo. 
 - Odtworzenie: **⬆ Wczytaj z pliku** → wybierz `stan.json` (wszystko) albo `wyniki.csv` (same punkty).
 - **Reset gry** najpierw pobiera kopię CSV i zapisuje archiwum w folderze zapisu, potem pyta o nazwy drużyn.
 
+## Scenariusz prowadzącego
+Przycisk **📄 Scenariusz** (górny pasek panelu) otwiera w nowej karcie scenariusz: co mówić graczom i publiczności od powitania po wyniki. Na górze strony jest przycisk **🖨 Drukuj** (drukarka albo „Zapisz jako PDF”).
+Treść edytujesz w `SCENARIUSZ.md`, a potem w terminalu w folderze projektu uruchamiasz `node tools/scenariusz.js` – to odświeża stronę `scenariusz.html`.
+
 ## Edycja treści
 Plik `data/pytania.js` – akronimy, przysłowia, licytacja, bomba, kalambury i piosenki do Czółka.
 Miejsca do uzupełnienia przez inne osoby są oznaczone `TODO` (Karol i tata – przysłowia).

@@ -47,6 +47,7 @@ body.admin { background: #f2f3f6; color: #1d1d22; font-size: 15px; }
 .btn.primary:hover:not(:disabled) { background: #b81032; }
 .btn.danger { color: #b3261e; border-color: #e8b4b0; }
 .btn.small { padding: 3px 8px; font-size: 12px; }
+a.btn { text-decoration: none; }
 .btn.team-btn { border-color: var(--team); color: var(--team); }
 .btn-row { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0; align-items: center; }
 

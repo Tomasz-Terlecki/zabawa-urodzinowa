@@ -21,6 +21,9 @@ Oba okna synchronizują się między sobą w obrębie jednej przeglądarki na ty
 | `index.html` | Tylko przekierowanie na `admin.html` (dla krótszego adresu wersji online) |
 | `screen.html` | Ekran na telewizor |
 | `data/pytania.js` | **Cała treść gry**: przysłowia, piosenki do licytacji i czółka, pytania do bomby, akronimy, hasła do kalamburów, lista zdjęć. Tu się edytuje pytania. |
+| `SCENARIUSZ.md` | Scenariusz prowadzącego (co mówić przez cały teleturniej). Po zmianie: `node tools/scenariusz.js` |
+| `scenariusz.html` | Wersja do druku, generowana z `SCENARIUSZ.md`; otwiera ją przycisk „📄 Scenariusz” w panelu |
+| `tools/`, `tests/` | Skrypt budujący scenariusz i testy (`node --test`) |
 | `zdjecia/` | Zdjęcia do konkurencji „Zdjęcia mamy” (trzeba je też dopisać w `data/pytania.js`) |
 | `zapis/` | Folder na zapis gry: `wyniki.csv` (historia punktów, otwiera się w Excelu), `stan.json` (pełny stan gry) i archiwa po resecie |
 | `css/style.css` | Wygląd i motywy ekranu TV |
