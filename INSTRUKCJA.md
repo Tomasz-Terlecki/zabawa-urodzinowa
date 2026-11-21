@@ -1,6 +1,7 @@
 # Teleturniej urodzinowy – instrukcja
 
 ## Start
+0. Przed imprezą: przycisk **🎟 Losowanie drużyn** (górny pasek panelu) otwiera karteczki „1” i „2” do druku i pocięcia – 4 na stronie A4. Wpisz liczbę osób (domyślnie 10, połowa „1”, połowa „2”) i drukuj w skali 100%.
 1. Otwórz `admin.html` w **Edge** lub **Chrome** (dwuklik na pliku).
 2. Pojawi się okno **Nazwy drużyn**: wpisz nazwy (i kolory), kliknij „Zaczynamy!”.
    Później zmienisz je przyciskiem **✏️ Nazwy drużyn** albo klikając nazwę drużyny po lewej.
@@ -45,6 +46,7 @@ TV pokazuje bieżące pytanie i licznik poprawnych odpowiedzi (aplikacja nie gra
 
 ### 6. Kalambury
 Drużyna 1 pokazuje hasła z zestawu A, drużyna 2 z zestawu B (można zamienić przyciskiem „⇄”).
+Przycisk **🖨 Karteczki** otwiera w nowej karcie hasła do druku – 4 na stronie A4, z liniami cięcia przez środek. Wybierasz zestaw A, B albo oba i drukujesz (albo „Zapisz jako PDF”) w skali 100%.
 1. Wybierz drużynę (`←` / `→`), `Spacja` = start zegara 2:00.
 2. W panelu widać duże bieżące hasło – osoba pokazująca czyta je z laptopa (TV go nie pokazuje).
 3. `Enter` = odgadnięte (od razu **+1 pkt**), `Backspace` = pomiń. Na TV rośnie licznik „Odgadnięte”.

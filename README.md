@@ -23,6 +23,8 @@ Oba okna synchronizują się między sobą w obrębie jednej przeglądarki na ty
 | `data/pytania.js` | **Cała treść gry**: przysłowia, piosenki do licytacji i czółka, pytania do bomby, akronimy, hasła do kalamburów, lista zdjęć. Tu się edytuje pytania. |
 | `SCENARIUSZ.md` | Scenariusz prowadzącego (co mówić przez cały teleturniej). Po zmianie: `node tools/scenariusz.js` |
 | `scenariusz.html` | Wersja do druku, generowana z `SCENARIUSZ.md`; otwiera ją przycisk „📄 Scenariusz” w panelu |
+| `kalambury.html` | Karteczki z hasłami do kalamburów do druku i pocięcia (4 na stronie A4); otwiera je przycisk „🖨 Karteczki” w zakładce Kalambury |
+| `losowanie.html` | Karteczki „1” i „2” do wylosowania drużyn (4 na stronie A4); otwiera je przycisk „🎟 Losowanie drużyn” w panelu |
 | `tools/`, `tests/` | Skrypt budujący scenariusz i testy (`node --test`) |
 | `zdjecia/` | Zdjęcia do konkurencji „Zdjęcia mamy” (trzeba je też dopisać w `data/pytania.js`) |
 | `zapis/` | Folder na zapis gry: `wyniki.csv` (historia punktów, otwiera się w Excelu), `stan.json` (pełny stan gry) i archiwa po resecie |

@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Losowanie drużyn – karteczki do druku</title>
+<!-- Karteczki „1” i „2” do wylosowania drużyn. 4 na stronie A4, linie cięcia przez środek. -->
+<style>
+@page { size: A4; margin: 0; }
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body { background: #ddd; color: #111; font-family: "Segoe UI", Arial, sans-serif; }
+.bar { text-align: center; padding: 14px; font-size: 12pt; }
+.bar input { width: 4em; font: inherit; padding: 6px; }
+.bar button { font: 600 12pt "Segoe UI", Arial, sans-serif; padding: 8px 16px; border-radius: 8px; border: 1px solid #c4c7cf; background: #fff; cursor: pointer; }
+.page { position: relative; width: 210mm; height: 297mm; margin: 0 auto 10mm; background: #fff; display: grid; grid-template: 1fr 1fr / 1fr 1fr; overflow: hidden; }
+.card { position: relative; display: flex; align-items: center; justify-content: center; }
+.num { font-size: 200pt; font-weight: 800; line-height: 1; }
+.tag { position: absolute; top: 12mm; left: 0; right: 0; text-align: center; font-size: 14pt; color: #888; letter-spacing: .1em; text-transform: uppercase; }
+.cut-v, .cut-h { position: absolute; border: 0 dashed #777; }
+.cut-v { left: 50%; top: 0; bottom: 0; border-left-width: .4mm; transform: translateX(-50%); }
+.cut-h { top: 50%; left: 0; right: 0; border-top-width: .4mm; transform: translateY(-50%); }
+@media print {
+  body { background: #fff; }
+  .bar { display: none; }
+  .page { margin: 0; break-after: page; }
+  .page:last-child { break-after: auto; }
+}
+</style>
+</head>
+<body>
+<div class="bar">
+  Liczba osób: <input id="people" type="number" min="2" max="40" value="10">
+  <button id="print">🖨 Drukuj</button>
+</div>
+<div id="pages"></div>
+
+<script>
+// Połowa karteczek „1”, połowa „2” (przy nieparzystej liczbie osób „1” ma o jedną więcej).
+function show() {
+  const n = Math.max(2, Math.min(40, Number(document.getElementById('people').value) || 10));
+  const nums = Array.from({ length: n }, (_, i) => (i < Math.ceil(n / 2) ? 1 : 2));
+  let out = '';
+  for (let p = 0; p < n; p += 4) {
+    let cards = '';
+    for (let i = p; i < p + 4; i++) {
+      cards += i < n ? `<div class="card"><div class="tag">Drużyna</div><div class="num">${nums[i]}</div></div>` : '<div class="card"></div>';
+    }
+    out += `<section class="page">${cards}<div class="cut-v"></div><div class="cut-h"></div></section>`;
+  }
+  document.getElementById('pages').innerHTML = out;
+}
+
+document.getElementById('people').oninput = show;
+document.getElementById('print').onclick = () => { show(); window.print(); };
+show();
+</script>
+</body>
+</html>

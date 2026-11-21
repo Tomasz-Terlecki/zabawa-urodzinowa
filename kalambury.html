@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kalambury – karteczki do druku</title>
+<!-- Hasła brane są z data/pytania.js. 4 hasła na stronie A4, linie cięcia przez środek. -->
+<style>
+@page { size: A4; margin: 0; }
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body { background: #ddd; color: #111; font-family: "Segoe UI", Arial, sans-serif; }
+.bar { text-align: center; padding: 14px; }
+.bar button { font: 600 12pt "Segoe UI", Arial, sans-serif; padding: 8px 16px; border-radius: 8px; border: 1px solid #c4c7cf; background: #fff; cursor: pointer; }
+.page { position: relative; width: 210mm; height: 297mm; margin: 0 auto 10mm; background: #fff; display: grid; grid-template: 1fr 1fr / 1fr 1fr; overflow: hidden; }
+.card { position: relative; display: flex; align-items: center; justify-content: center; text-align: center; padding: 18mm 14mm; }
+.word { font-weight: 700; line-height: 1.15; overflow-wrap: break-word; }
+.tag { position: absolute; top: 12mm; left: 0; right: 0; font-size: 10pt; color: #888; letter-spacing: .08em; text-transform: uppercase; }
+.cut-v, .cut-h { position: absolute; border: 0 dashed #777; }
+.cut-v { left: 50%; top: 0; bottom: 0; border-left-width: .4mm; transform: translateX(-50%); }
+.cut-h { top: 50%; left: 0; right: 0; border-top-width: .4mm; transform: translateY(-50%); }
+@media print {
+  body { background: #fff; }
+  .bar { display: none; }
+  .page { margin: 0; break-after: page; }
+  .page:last-child { break-after: auto; }
+}
+</style>
+</head>
+<body>
+<div class="bar">
+  <button data-set="A">🖨 Zestaw A</button>
+  <button data-set="B">🖨 Zestaw B</button>
+  <button data-set="AB">🖨 Oba zestawy</button>
+</div>
+<div id="pages"></div>
+
+<script src="data/pytania.js"></script>
+<script>
+const KAL = (window.PYTANIA && window.PYTANIA.kalambury) || { A: [], B: [] };
+const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+
+// Mniejsza czcionka dla dłuższych haseł (tekst ma ok. 77 mm szerokości).
+function fontSize(word) {
+  const longest = Math.max(...word.split(/\s+/).map(w => w.length));
+  if (longest > 13) return 26;
+  if (longest > 11 || word.length > 20) return 30;
+  if (longest > 9 || word.length > 14) return 34;
+  return 40;
+}
+
+function pages(set) {
+  const words = KAL[set] || [];
+  let out = '';
+  for (let p = 0; p < words.length; p += 4) {
+    let cards = '';
+    for (let i = p; i < p + 4; i++) {
+      cards += i < words.length
+        ? `<div class="card"><div class="tag">Zestaw ${set} · ${i + 1}</div><div class="word" style="font-size:${fontSize(words[i])}pt">${esc(words[i])}</div></div>`
+        : '<div class="card"></div>';
+    }
+    out += `<section class="page">${cards}<div class="cut-v"></div><div class="cut-h"></div></section>`;
+  }
+  return out;
+}
+
+function show(sets) {
+  document.getElementById('pages').innerHTML = sets.split('').map(pages).join('');
+  document.title = `Kalambury – zestaw ${sets.split('').join(' i ')}`; // nazwa pliku przy „Zapisz jako PDF”
+}
+
+document.querySelectorAll('.bar button').forEach(b => b.onclick = () => { show(b.dataset.set); window.print(); });
+show('AB');
+</script>
+</body>
+</html>
