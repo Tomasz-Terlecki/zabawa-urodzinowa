@@ -1,5 +1,6 @@
 // =====================================================================
-//  TREŚCI DO TELETURNIEJU – tu edytujesz akronimy i przysłowia.
+//  TREŚCI DO TELETURNIEJU – akronimy, przysłowia, licytacja, bomba, czółko, kalambury, zdjęcia.
+//  Po zmianie możesz sprawdzić plik testami: w terminalu `node --test` (folder projektu).
 //  Zasady: każdy wpis w osobnej linii, zakończony przecinkiem,
 //  teksty w apostrofach '...'. Po zmianie odśwież panel i ekran TV (F5).
 // =====================================================================
@@ -9,22 +10,39 @@ window.PYTANIA = {
   // Akronimy: skrót + pełne rozwinięcie.
   // Pierwsze litery słów pasujące do skrótu zostaną wyróżnione na ekranie.
   akronimy: [
-    { skrot: 'PKP',   rozwiniecie: 'Polskie Koleje Państwowe' },
-    { skrot: 'ZUS',   rozwiniecie: 'Zakład Ubezpieczeń Społecznych' },
-    { skrot: 'PRL',   rozwiniecie: 'Polska Rzeczpospolita Ludowa' },
-    { skrot: 'NFZ',   rozwiniecie: 'Narodowy Fundusz Zdrowia' },
-    { skrot: 'PKO',   rozwiniecie: 'Powszechna Kasa Oszczędności' },
-    { skrot: 'PZU',   rozwiniecie: 'Powszechny Zakład Ubezpieczeń' },
-    { skrot: 'GOPR',  rozwiniecie: 'Górskie Ochotnicze Pogotowie Ratunkowe' },
-    { skrot: 'TOPR',  rozwiniecie: 'Tatrzańskie Ochotnicze Pogotowie Ratunkowe' },
-    { skrot: 'PKS',   rozwiniecie: 'Państwowa Komunikacja Samochodowa' },
-    { skrot: 'OSP',   rozwiniecie: 'Ochotnicza Straż Pożarna' },
-    { skrot: 'PAN',   rozwiniecie: 'Polska Akademia Nauk' },
-    { skrot: 'PWN',   rozwiniecie: 'Państwowe Wydawnictwo Naukowe' },
-    { skrot: 'IPN',   rozwiniecie: 'Instytut Pamięci Narodowej' },
-    { skrot: 'MPK',   rozwiniecie: 'Miejskie Przedsiębiorstwo Komunikacyjne' },
-    { skrot: 'PZPN',  rozwiniecie: 'Polski Związek Piłki Nożnej' },
-    { skrot: 'PESEL', rozwiniecie: 'Powszechny Elektroniczny System Ewidencji Ludności' },
+    // --- łatwe (na rozgrzewkę) ---
+    { skrot: 'PKP',    rozwiniecie: 'Polskie Koleje Państwowe' },
+    { skrot: 'ZUS',    rozwiniecie: 'Zakład Ubezpieczeń Społecznych' },
+    { skrot: 'NFZ',    rozwiniecie: 'Narodowy Fundusz Zdrowia' },
+    { skrot: 'PRL',    rozwiniecie: 'Polska Rzeczpospolita Ludowa' },
+    { skrot: 'TVP',    rozwiniecie: 'Telewizja Polska' },
+    { skrot: 'BHP',    rozwiniecie: 'Bezpieczeństwo i Higiena Pracy' },
+    { skrot: 'OSP',    rozwiniecie: 'Ochotnicza Straż Pożarna' },
+    { skrot: 'PKO',    rozwiniecie: 'Powszechna Kasa Oszczędności' },
+    { skrot: 'GUS',    rozwiniecie: 'Główny Urząd Statystyczny' },
+    { skrot: 'WOŚP',   rozwiniecie: 'Wielka Orkiestra Świątecznej Pomocy' },
+    // --- średnie ---
+    { skrot: 'PESEL',  rozwiniecie: 'Powszechny Elektroniczny System Ewidencji Ludności' },
+    { skrot: 'PTTK',   rozwiniecie: 'Polskie Towarzystwo Turystyczno-Krajoznawcze' },
+    { skrot: 'GOPR',   rozwiniecie: 'Górskie Ochotnicze Pogotowie Ratunkowe' },
+    { skrot: 'PZPN',   rozwiniecie: 'Polski Związek Piłki Nożnej' },
+    { skrot: 'NIK',    rozwiniecie: 'Najwyższa Izba Kontroli' },
+    { skrot: 'IPN',    rozwiniecie: 'Instytut Pamięci Narodowej' },
+    { skrot: 'KRUS',   rozwiniecie: 'Kasa Rolniczego Ubezpieczenia Społecznego' },
+    { skrot: 'SOR',    rozwiniecie: 'Szpitalny Oddział Ratunkowy' },
+    { skrot: 'PGR',    rozwiniecie: 'Państwowe Gospodarstwo Rolne' },
+    { skrot: 'PIT',    rozwiniecie: 'Personal Income Tax' }, // podchwytliwe – skrót z angielskiego!
+    // --- trudne (dla mistrzów) ---
+    { skrot: 'REGON',  rozwiniecie: 'Rejestr Gospodarki Narodowej' },
+    { skrot: 'PEWEX',  rozwiniecie: 'Przedsiębiorstwo Eksportu Wewnętrznego' },
+    { skrot: 'CPN',    rozwiniecie: 'Centrala Produktów Naftowych' },
+    { skrot: 'ZOMO',   rozwiniecie: 'Zmotoryzowane Odwody Milicji Obywatelskiej' },
+    { skrot: 'FSM',    rozwiniecie: 'Fabryka Samochodów Małolitrażowych' },
+    { skrot: 'SGGW',   rozwiniecie: 'Szkoła Główna Gospodarstwa Wiejskiego' },
+    { skrot: 'UOKiK',  rozwiniecie: 'Urząd Ochrony Konkurencji i Konsumentów' },
+    { skrot: 'GDDKiA', rozwiniecie: 'Generalna Dyrekcja Dróg Krajowych i Autostrad' },
+    { skrot: 'IMGW',   rozwiniecie: 'Instytut Meteorologii i Gospodarki Wodnej' },
+    { skrot: 'GROM',   rozwiniecie: 'Grupa Reagowania Operacyjno-Manewrowego' },
   ],
 
   // Przysłowia – koło fortuny. 2 rundy = 2 przysłowia (pierwsze dwa), reszta to zapas.
@@ -37,29 +55,201 @@ window.PYTANIA = {
     'Kto pod kim dołki kopie, ten sam w nie wpada', // zapas
   ],
 
-  // Licytacja wersów piosenki: runda 1 lub 2, tytuł, wykonawca, maks. liczba wersów do wylicytowania.
+  // Licytacja wersów piosenki: tytuł, wykonawca, maks. liczba wersów do wylicytowania.
   //   tekst – tekst piosenki widoczny TYLKO w panelu prowadzącego (jedna linijka = jeden wers,
   //           puste linie oddzielają zwrotki i nie są liczone). Wpisz go między znaki ` `.
   //   mp3   – (opcjonalnie) ścieżka do pliku, np. 'muzyka/sokoly.mp3'. Plik można też wgrać
   //           przyciskiem w panelu (zapamięta się w przeglądarce).
   //   Jeśli nie podasz maxWersow, limitem będzie liczba wersów w tekście.
-  // TODO Kasia i tata: podmienić na wybrane piosenki i wkleić teksty.
   licytacja: [
-    { runda: 1, tytul: 'Hej, sokoły', autor: 'pieśń ludowa', maxWersow: 8, mp3: '',
-      tekst: `
-Hej, tam gdzieś znad czarnej wody
-Siada na koń kozak młody
-Czule żegna się z dziewczyną
-Jeszcze czulej z Ukrainą
+    { tytul: 'Tyle słońca w całym mieście', autor: 'Anna Jantar', maxWersow: 8, mp3: '',
+      tekst: `Dzień - wspomnienie lata
+Dzień - słoneczne ćmy (a-a)
+Nagle w tłumie w samym środku miasta
+Ty, po prostu Ty
 
-Hej, hej, hej sokoły
-Omijajcie góry, lasy, doły
-Dzwoń, dzwoń, dzwoń dzwoneczku
-Mój stepowy skowroneczku
+Dzień (dzień) - godzina zwierzeń (zwierzeń)
+Dzień (dzień) - przy twarzy twarz (u-u)
+Szuka pamięć poplątanych ścieżek
+Lecz (lecz), czy znajdzie nas?
+
+Tyle słońca w całym mieście
+Nie widziałeś tego jeszcze
+Popatrz, o popatrz!
+
+Szerokimi ulicami
+Niosą szczęście zakochani
+Popatrz, o popatrz!
+
+Wiatr porywa ich spojrzenia
+Biegnie światłem w smugę cienia
+Popatrz, o popatrz!
+
+Łączy serca, wiąże dłonie
+Może nam zawróci w głowie też!
+
+La-la-la-la-la-la-la
+La-la-la-la-la-la-la
+La-la-la-la-la-la-la
+La-la-la-la-la-la-la
+
+Dzień (dzień) - powrotna podróż (podróż)
+Dzień - podanie rąk (u-u)
+Ale niebo całe jeszcze w ogniu
+Chcę, zatrzymać wzrok
+
+Tyle słońca w całym mieście
+Nie widziałeś tego jeszcze
+Popatrz, o popatrz!
+
+Szerokimi ulicami
+Niosą szczęście zakochani
+Popatrz, o popatrz!
+
+Wiatr porywa ich spojrzenia
+Biegnie światłem w smugę cienia
+Popatrz, o popatrz!
+
+Łączy serca, wiąże dłonie
+Może nam zawróci w głowie też!
+
+Dzień (dzień) - wspomnienie lata (lata)
+Dzień (dzień) - wspomnienie lata (lata)
+Dzień (dzień) - wspomnienie lata (lata)
+Dzień (dzień) - wspomnienie lata (lata)
 ` },
-    { runda: 1, tytul: 'Szła dzieweczka do laseczka', autor: 'pieśń ludowa', maxWersow: 8, mp3: '', tekst: `` },
-    { runda: 2, tytul: 'Jesteś szalona',              autor: 'Boys',         maxWersow: 8, mp3: '', tekst: `` },
-    { runda: 2, tytul: 'Czerwone korale',             autor: 'Bayer Full',   maxWersow: 8, mp3: '', tekst: `` },
+    { tytul: 'Zacznij od Bacha', autor: 'Zbigniew Wodecki', maxWersow: 8, mp3: '',
+      tekst: `Gdy musisz wstać,
+choć tulisz tak pod głową obłoczek snu
+i słów tyle znasz uczonych cicho przez noc,
+a tu dzień wstaje już kolorowo — witaj!
+
+Gdy musisz wstać,
+bo słońce już zawiesza na szczytach wież
+poranny swój szal i rusza, cień w długi marsz,
+wokół drzew krząta się ptaków rzesza — witaj!
+
+Zacznij od Bacha, nim słońce po dachach
+zeskoczy, jak kot po nocy ćmej.
+I zacznij od Bacha, gdy w progu się waha
+ktoś, kto winien wejść, a może nie...
+
+Gdy musisz wstać,
+Choć tulisz tak pod głową obłoczek snu
+i słów tyle znasz uczonych cicho przez noc,
+a tu dzień wstaje już kolorowo — witaj!
+
+Gdy musisz wstać,
+bo słońce już zawiesza na szczytach wież
+poranny swój szal i rusza, cień w długi marsz,
+wokół drzew krząta się ptaków rzesza — witaj!
+
+Zacznij od Bacha, nim słońce po dachach
+zeskoczy, jak kot po nocy ćmej.
+I zacznij od Bacha, gdy w progu się waha
+ktoś, kto winien wejść, a może nie...
+
+Tu du ru du...
+tu ru du du daj pa ru ba du du du daj
+tu ru du du daj pa ru ba du du ru du
+du ru daj du ru du du ru du du — witaj!
+` },
+    { tytul: 'Ściernisko', autor: 'Golec uOrkiestra', maxWersow: 8, mp3: '',
+      tekst: `Pole, pole, łyse pole, ale mam już plan
+Pomalutku, bez pośpiechu, wszystko zrobię sam
+Nad makietą się męczyłem ładnych parę lat
+Ale za to zwiedzać cudo będzie cały świat
+
+Tu na razie jest ściernisko
+Ale będzie San Francisco
+A tam, gdzie to kretowisko
+Będzie stał mój bank
+
+Tu na razie jest ściernisko
+Ale będzie San Francisco
+A tam, gdzie to kretowisko
+Będzie stał mój bank
+
+Do roboty mam smykałkę, krzepę mam, jak wół
+Sam pociągnę wóz pustaków, choćby był bez kół
+Już wyciąłem wszystkie krzaki, teraz zwożę żwir
+Mam to w nosie, że sąsiedzi mówią o mnie "świr"
+
+Tu na razie jest ściernisko
+Ale będzie San Francisco
+A tam, gdzie to kretowisko
+Będzie stał mój bank
+
+Tu na razie jest ściernisko
+Ale będzie San Francisco
+A tam, gdzie to kretowisko
+Będzie stał mój bank
+
+Ja nie jestem w ciemię bity, budowlankę znam
+I samemu burmistrzowi wstęgę przeciąć dam
+
+Tu na razie jest ściernisko
+Ale będzie San Francisco
+A tam, gdzie to kretowisko
+Będzie stał mój bank
+
+Tu na razie jest ściernisko
+Ale będzie San Francisco
+A tam, gdzie to kretowisko
+Będzie stał mój bank
+
+Tu na razie jest ściernisko
+Ale będzie San Francisco
+A tam, gdzie to kretowisko
+Będzie stał mój bank
+
+Tu na razie jest ściernisko
+Ale będzie San Francisco
+A tam, gdzie to kretowisko
+Będzie stał mój bank
+` },
+    { tytul: 'Czerwone korale', autor: 'Brathanki', maxWersow: 8, mp3: '',
+      tekst: `Czerwone korale, czerwone niczym wino
+Korale z polnej jarzębiny
+I łzy dziewczyny i wielkie łzy
+
+Z miasta płaszcz i korale me
+On pochwalił i rzekł
+Że ze mną zatańczyć chce
+
+Jego dżins i mej bluzki biel
+Zwarły się w tangu wnet
+We włosy miał wtarty żel
+
+Potem mnie na wycieczkę wziął
+I na wycieczce tej
+Mą bieluśką bluzkę zdjął
+
+Wszyscy mi zazdrościli tam
+Gdy wróciłam i gdy
+W pomiętej bluzeczce szłam
+
+Czerwone korale, czerwone niczym wino
+Korale z polnej jarzębiny
+I łzy dziewczyny i wielkie łzy
+
+Wczoraj też na tych tańcach był
+A na włosach mu żel
+Jak srebrzysty księżyc lśnił
+
+Tyle, że z Kryśką cały czas
+Tańczył, a w stronę mą
+Nie spojrzał ni jeden raz
+
+Z innym zatańczę gdy
+Z tą Kryśką będziesz ty
+A potem czemu nie
+Niech inny bluzkę mnie
+
+Naj naj naj naj naj naj
+Naj naj naj naj na naj
+Naj naj naj naj naj naj
+Naj naj naj naj naj naj naj naj naj naj` },
   ],
 
   // Bomba – urodziny: pytania indywidualne (pytanie + odpowiedź widoczna tylko dla prowadzącego).
@@ -68,7 +258,7 @@ Mój stepowy skowroneczku
     { pytanie: 'Szczecin leży nad morzem – prawda czy fałsz?', odpowiedz: 'Fałsz' },
     { pytanie: 'Jakie owoce znajdują się w tradycyjnej polskiej szarlotce?', odpowiedz: 'Jabłka' },
     { pytanie: 'Kto jest autorem wiersza „Lokomotywa”?', odpowiedz: 'Julian Tuwim' },
-    { pytanie: 'Jaki jest tytuł hymnu reprezentacji Polski w piłce nożnej na mistrzostwach Europy rozgrywanych w Polsce i Ukrainie w 2012 roku?', odpowiedz: 'Ko-ko Euro spoko' },
+    { pytanie: 'Jaki jest tytuł oficjalnej piosenki Mistrzostw Europy w piłce nożnej rozgrywanych w Polsce i Ukrainie w 2012 roku?', odpowiedz: 'Ko-ko Euro spoko' },
     { pytanie: 'W jakim fikcyjnym miasteczku toczy się akcja kultowego serialu komediowego „Ranczo”?', odpowiedz: 'Wilkowyje' },
     { pytanie: 'Podaj jeden z tytułów ekranizacji trylogii Henryka Sienkiewicza.', odpowiedz: '„Potop”, „Pan Wołodyjowski”, „Ogniem i mieczem”' },
     { pytanie: 'Jak nazywa się słynny teleturniej prowadzony przez Karola Strasburgera?', odpowiedz: 'Familiada' },
@@ -102,15 +292,26 @@ Mój stepowy skowroneczku
     { pytanie: 'Jakie jest najpopularniejsze miejsce na śmietnik w kuchni?', odpowiedz: 'Pod zlewem' },
   ],
 
-  // Czółko: piosenki (tytuł + wykonawca). Po 6 na drużynę = 12 sztuk.
+  // Czółko: piosenki (tytuł + wykonawca). Liczba powinna być PARZYSTA – drużyny wybierają na zmianę,
+  // więc przy nieparzystej jedna ma o piosenkę więcej. Nie powtarzaj tu piosenek z licytacji.
   // Kolejność numerków na ekranie jest losowana, więc nie trzeba tu mieszać.
   czolko: [
+    { tytul: 'A gdy jest już ciemno',        autor: 'Feel' },
+    { tytul: 'Szampan',                      autor: 'Sanah' },
+    { tytul: 'Chodź, pomaluj mój świat',     autor: '2 plus 1' },
+    { tytul: 'Pokolenie',                    autor: 'Kombi' },
+    { tytul: 'Zawsze z Tobą chciałbym być',  autor: 'Ich Troje' },
+    { tytul: 'Bieszczadzkie anioły',         autor: 'Stare Dobre Małżeństwo' },
+    { tytul: 'Wsiąść do pociągu',            autor: 'Maryla Rodowicz' },
+    { tytul: 'Mój jest ten kawałek podłogi', autor: 'Mr. Zoob' },
+    { tytul: 'Nie ma fal',                   autor: 'Dawid Podsiadło' },
+    { tytul: 'Weź nie pytaj',                autor: 'Paweł Domagała' },
+    { tytul: 'Małgośka',                     autor: 'Maryla Rodowicz' },
     { tytul: 'Jolka, Jolka pamiętasz',       autor: 'Budka Suflera' },
     { tytul: 'Przeżyj to sam',               autor: 'Lombard' },
     { tytul: 'Dmuchawce, latawce, wiatr',    autor: 'Urszula' },
     { tytul: 'Autobiografia',                autor: 'Perfect' },
     { tytul: 'Kolorowe jarmarki',            autor: 'Maryla Rodowicz' },
-    { tytul: 'Małgośka',                     autor: 'Maryla Rodowicz' },
     { tytul: 'Wehikuł czasu',                autor: 'Dżem' },
     { tytul: 'Chałupy Welcome To',           autor: 'Zbigniew Wodecki' },
     { tytul: 'Szczęśliwej drogi, już czas',  autor: 'Ryszard Rynkowski' },

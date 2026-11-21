@@ -318,10 +318,11 @@ body.screen[data-view="score"] .tv-top { display: none; }
 /* ---------- TV: Czółko ---------- */
 .czo-turn { font-size: calc(5 * var(--vu)); margin-bottom: calc(5 * var(--vu)); }
 .czo-turn b { background: var(--team); padding: calc(.3 * var(--vu)) 2vw; border-radius: calc(1.5 * var(--vu)); }
-.czo-tiles { display: grid; grid-template-columns: repeat(6, calc(15 * var(--vu))); justify-content: center; gap: calc(2.5 * var(--vu)); }
+/* --cols / --size ustawia screen.js (czoGrid) zależnie od liczby piosenek */
+.czo-tiles { display: grid; grid-template-columns: repeat(var(--cols, 6), calc(var(--size, 15) * var(--vu))); justify-content: center; gap: calc(var(--size, 15) / 6 * var(--vu)); }
 .czo-tile {
-  position: relative; height: calc(15 * var(--vu)); border-radius: calc(2.4 * var(--vu)); display: flex; align-items: center; justify-content: center;
-  font-size: calc(9 * var(--vu)); font-weight: 900; color: #c8102e;
+  position: relative; height: calc(var(--size, 15) * var(--vu)); border-radius: calc(var(--size, 15) * .16 * var(--vu)); display: flex; align-items: center; justify-content: center;
+  font-size: calc(var(--size, 15) * .6 * var(--vu)); font-weight: 900; color: #c8102e;
   background: linear-gradient(180deg, #fff 0%, #e6e6e6 100%); box-shadow: 0 calc(1.2 * var(--vu)) calc(3 * var(--vu)) rgba(0,0,0,.45);
 }
 .czo-tile.done { background: var(--team); color: rgba(255,255,255,.6); opacity: .45; box-shadow: none; }

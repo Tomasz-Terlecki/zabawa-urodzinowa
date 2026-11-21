@@ -6,7 +6,7 @@ const STORAGE_KEY = 'teleturniej_mama_v1';
 const DATA = Object.assign({ akronimy: [], przyslowia: [], czolko: [], kalambury: { A: [], B: [] }, licytacja: [], bomba: [], zdjecia: [] }, window.PYTANIA || {});
 
 // Kolejność konkurencji (nazwy jak w polu `comp` wpisów historii) – do tabeli punktacji
-const COMP_ORDER = ['Przysłowia', 'Licytacja I', 'Bomba', 'Akronimy', 'Licytacja II', 'Kalambury', 'Czółko', 'Zdjęcia mamy'];
+const COMP_ORDER = ['Przysłowia', 'Licytacja', 'Bomba', 'Akronimy', 'Kalambury', 'Czółko', 'Zdjęcia mamy'];
 // Konkurencje dodatkowe – na TV w tabeli tylko, jeśli ktoś zdobył w nich punkty
 const OPTIONAL_COMPS = ['Zdjęcia mamy', 'Inne / ręczne'];
 
@@ -31,15 +31,17 @@ const T = {
     const d = new Date(ms), p = n => String(n).padStart(2, '0');
     return `${p(d.getHours())}:${p(d.getMinutes())}:${p(d.getSeconds())}`;
   },
-  // Dzieli rozwinięcie na słowa i oznacza pierwsze litery pasujące kolejno do skrótu.
+  // Dzieli rozwinięcie na słowa (także po myślniku) i oznacza pierwsze litery pasujące kolejno do skrótu.
+  // Litery skrótu, które nie są początkiem żadnego słowa (np. V w TVP, E i O w REGON), są pomijane.
   acronymParts(skrot, full) {
     const letters = [...T.upper(skrot)].filter(T.isLetter);
     let p = 0;
-    return String(full).split(/(\s+)/).filter(w => w !== '').map(w => {
-      if (/^\s+$/.test(w)) return { text: w };
+    return String(full).split(/(\s+|-)/).filter(w => w !== '').map(w => {
+      if (/^(\s+|-)$/.test(w)) return { text: w };
       const first = [...w][0];
-      if (p < letters.length && T.upper(first) === letters[p]) {
-        p++;
+      const idx = letters.indexOf(T.upper(first), p);
+      if (idx !== -1) {
+        p = idx + 1;
         return { first, rest: w.slice(first.length) };
       }
       return { text: w };
@@ -70,6 +72,14 @@ function fitImage(img, maxW, maxH) {
   img.style.width = `${Math.floor(img.naturalWidth * k)}px`;
   img.style.height = `${Math.floor(img.naturalHeight * k)}px`;
   return true;
+}
+
+// Czółko: układ numerków na TV zależny od liczby piosenek (size = bok kafelka w jednostkach --vu ≈ % wysokości ekranu)
+function czoGrid(n) {
+  const cols = n <= 18 ? 6 : n <= 24 ? 8 : 10;
+  const rows = Math.max(1, Math.ceil(n / cols));
+  const size = rows <= 2 ? 15 : rows === 3 ? 13 : 10;
+  return { cols, rows, size };
 }
 
 // ---------- Timer (stan w obiekcie, liczony z zegara – działa w obu oknach) ----------
@@ -207,7 +217,8 @@ const Game = (() => {
     const rows = COMP_ORDER.map(name => ({ name, pts: [0, 0] }));
     const other = { name: 'Inne / ręczne', pts: [0, 0] };
     for (const e of s.log) {
-      const row = rows.find(r => r.name === e.comp) || other;
+      const comp = /^Licytacja I+$/.test(e.comp) ? 'Licytacja' : e.comp; // stare wpisy „Licytacja I/II”
+      const row = rows.find(r => r.name === comp) || other;
       row.pts[e.team] += Number(e.pts) || 0;
     }
     return [...rows, other];

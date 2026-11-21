@@ -45,7 +45,7 @@ const Sound = {
 function compTitle() {
   return ({
     przyslowia: '📜 Przysłowia',
-    licytacja: karaokeOn() ? '🎶 Śpiewamy razem!' : `🎤 Licytacja wersów · runda ${S.lic.round === 2 ? 'II' : 'I'}`,
+    licytacja: karaokeOn() ? '🎶 Śpiewamy razem!' : '🎤 Licytacja wersów',
     bomba: '💣 Bomba',
     akronimy: '🔤 Akronimy',
     kalambury: '🎭 Kalambury',
@@ -294,9 +294,10 @@ function czoStageHTML() {
     if (!r) return `<span class="czo-tile">${num}</span>`;
     return `<span class="czo-tile done ${r.ok ? 'ok' : 'fail'}" style="--team:${T.esc(S.teams[r.team].color)}">${num}<small>${r.ok ? '✓' : '✗'}</small></span>`;
   }).join('');
+  const g = czoGrid(n);
   return `<div class="czo-view">
     <div class="czo-turn">Wybiera: <b style="--team:${T.esc(team.color)}">${T.esc(team.name)}</b></div>
-    <div class="czo-tiles">${tiles}</div></div>`;
+    <div class="czo-tiles" style="--cols:${g.cols};--size:${g.size}">${tiles}</div></div>`;
 }
 
 // ---------- Zegar (Kalambury / Czółko) ----------

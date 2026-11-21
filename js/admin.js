@@ -7,7 +7,7 @@ let localWarn = null;   // ostrzeżenie widoczne tylko w panelu (np. powtórzona
 const $ = s => document.querySelector(s);
 const $$ = s => [...document.querySelectorAll(s)];
 const VIEW_NAMES = { score: 'Ogólne', akronimy: 'Akronimy', przyslowia: 'Przysłowia', kalambury: 'Kalambury', czolko: 'Czółko', bomba: 'Bomba', zdjecia: 'Zdjęcia mamy' };
-const licComp = (r = S.lic.round) => (r === 2 ? 'Licytacja II' : 'Licytacja I');
+const licComp = () => 'Licytacja';
 const compName = () => (S.view === 'licytacja' ? licComp() : VIEW_NAMES[S.view]);
 const fmtPts = p => (p > 0 ? `+${p}` : String(p));
 
@@ -143,7 +143,7 @@ function akrAward(team) {
 }
 
 // ---------- Licytacja wersów ----------
-const licSongs = (r = S.lic.round) => DATA.licytacja.map((s, i) => ({ ...s, i })).filter(s => Number(s.runda) === r);
+const licSongs = () => DATA.licytacja.map((s, i) => ({ ...s, i }));
 const licSong = () => DATA.licytacja[S.lic.song];
 const licTop = () => S.lic.bids[S.lic.bids.length - 1] || null;
 // Wersy tekstu (bez pustych linii) i limit licytacji
@@ -610,7 +610,7 @@ function render() {
     card.querySelector('.team-score').textContent = sc[i];
   });
   $$('.tabs [data-view]').forEach(b => b.classList.toggle('active',
-    b.dataset.view === S.view && (!b.dataset.round || +b.dataset.round === S.lic.round)));
+    b.dataset.view === S.view));
   $$('.panel').forEach(p => { p.hidden = p.id !== `panel-${S.view}`; });
   if (document.activeElement !== $('#set-title')) $('#set-title').value = S.title;
   $('#set-theme').value = S.theme;
@@ -652,9 +652,8 @@ function renderTable() {
 
 function renderLic() {
   const l = S.lic, song = licSong(), top = licTop();
-  const roman = l.round === 2 ? 'II' : 'I';
-  $('#lic-title').textContent = `🎤 Licytacja wersów – runda ${roman}`;
-  $('#lic-song').innerHTML = song ? `<b>${T.esc(song.tytul)}</b> – ${T.esc(song.autor)}` : '(brak piosenek dla tej rundy w data/pytania.js)';
+  $('#lic-title').textContent = '🎤 Licytacja wersów';
+  $('#lic-song').innerHTML = song ? `<b>${T.esc(song.tytul)}</b> – ${T.esc(song.autor)}` : '(brak piosenek do licytacji w data/pytania.js)';
   $('#lic-max').textContent = song ? `maks. ${licMax(song)} wersów` : '';
   const st = licStartTeam(), sc = Game.scores(S);
   $('#lic-start-info').innerHTML = `Licytację zaczyna: <b style="color:${T.esc(S.teams[st].color)}">${T.esc(S.teams[st].name)}</b>` +
@@ -1083,10 +1082,7 @@ function bind() {
   $('#btn-undo').addEventListener('click', undo);
   $$('.tabs [data-view]').forEach(b => b.addEventListener('click', () => {
     S.view = b.dataset.view;
-    if (b.dataset.round) {
-      S.lic.round = +b.dataset.round;
-      licEnsureSong();
-    }
+    if (S.view === 'licytacja') licEnsureSong();
     localWarn = null;
     commit();
   }));

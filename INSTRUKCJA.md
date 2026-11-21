@@ -22,8 +22,8 @@ Wybierz drużynę (`←` / `→`), wpisz literę (polskie: AltGr+A itd.) lub kli
 - A, E, I, O, U, Y są zablokowane – odsłaniają się dopiero z całym hasłem.
 - Odgadnięte hasło: przycisk „✔ … odgaduje” = **+7 pkt**. „Następne przysłowie” = runda 2.
 
-### 2. i 5. Licytacja wersów
-Zakładka „Licytacja I” / „Licytacja II” pokazuje piosenki z danej rundy.
+### 2. Licytacja wersów
+Zakładka „Licytacja” pokazuje wszystkie piosenki z `data/pytania.js`.
 1. TV: tytuł, wykonawca i która drużyna zaczyna (ta z mniejszą liczbą punktów; przy remisie wybierz ręcznie).
 2. Wpisuj oferty drużyn i klikaj „Licytuj” (każda musi być wyższa od poprzedniej). „↶ Cofnij ofertę” w razie pomyłki.
 3. **🔨 Koniec licytacji** → śpiewa drużyna z najwyższą ofertą.
@@ -52,7 +52,7 @@ Drużyna 1 pokazuje hasła z zestawu A, drużyna 2 z zestawu B (można zamienić
 5. Po obu drużynach: **📊 Pokaż podsumowanie na TV**.
 
 ### 8. Czółko
-1. TV pokazuje numerki 1–12 (piosenki losowo przypisane) i która drużyna wybiera.
+1. TV pokazuje numerki (1–liczba piosenek, losowo przypisane) i która drużyna wybiera.
 2. Kliknij numer wybrany przez drużynę → TV: „odwróćcie się tyłem”.
 3. `Spacja` / „Pokaż piosenkę” → TV pokazuje tytuł i wykonawcę, rusza zegar 45 s.
 4. **✔ Odgadli** (+3 pkt) albo **✖ Nie odgadli** → kolej drugiej drużyny przechodzi sama.
@@ -73,5 +73,8 @@ Zdjęcie na TV jest zakryte numerowanymi kafelkami, które odkrywasz stopniowo. 
 
 ## Edycja treści
 Plik `data/pytania.js` – akronimy, przysłowia, licytacja, bomba, kalambury i piosenki do Czółka.
-Miejsca do uzupełnienia przez inne osoby są oznaczone `TODO` (Karol i tata – przysłowia, Kasia i tata – licytacja).
+Miejsca do uzupełnienia przez inne osoby są oznaczone `TODO` (Karol i tata – przysłowia).
 Po zmianie odśwież oba okna (`F5`).
+
+**Sprawdzenie treści i logiki (testy):** w folderze projektu uruchom w terminalu `node --test`.
+Testy wyłapią m.in. literówki w akronimach, za długie `maxWersow`, powtórzone piosenki, nieparzystą liczbę piosenek w Czółku, brakujące pliki zdjęć.
