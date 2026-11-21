@@ -102,7 +102,7 @@ W nawiasach kwadratowych, np. [Drużyna 1], wstawiasz nazwy drużyn albo imiona.
 > 2. Wyniki widać przez cały czas na górze ekranu. Między konkurencjami pokażę też tabelę – kto ile zdobył w każdej grze.
 > 3. Zanim zaczniemy każdą konkurencję, wyjaśnię jej zasady. Jeśli coś będzie niejasne – pytajcie śmiało, zanim ruszy zegar.
 > 4. W drużynie można się naradzać, ale odpowiedź podaje jedna osoba. Liczy się pierwsza wypowiedziana odpowiedź.
-> 5. Publiczność kibicuje swojej drużynie, ale **nie podpowiada** (chyba że zasady konkurencji mówią inaczej). Za podpowiadanie… drużyna, której publiczność podpowiedziała, nie dostaje punktów.
+> 5. Publiczność kibicuje swojej drużynie i może jej coś **szepnąć na ucho** – ale **nie wykrzykuje odpowiedzi** na całą salę! Kto wykrzyczy odpowiedź… jego drużyna nie dostaje za nią punktów.
 > 6. W sprawach spornych ostatnie słowo ma prowadzący. A od decyzji prowadzącego można się odwołać tylko do Solenizantki!
 >
 > Gramy fair, gramy z uśmiechem, a wygrywa drużyna, która na koniec będzie miała więcej punktów. Zaczynamy!

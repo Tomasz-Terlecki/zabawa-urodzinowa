@@ -49,10 +49,15 @@ window.PYTANIA = {
   // Zgaduje się spółgłoski oraz Ą, Ę, Ó (A, E, I, O, U, Y odsłaniają się dopiero z całym hasłem).
   // TODO Karol i tata: podmienić na wybrane przysłowia (dla zmyłki najlepiej bez Ą, Ę, Ó).
   przyslowia: [
-    'Gdzie kucharek sześć, tam nie ma co jeść',   // runda 1
-    'Bez pracy nie ma kołaczy',                   // runda 2
-    'Co nagle, to po diable',                     // zapas
-    'Kto pod kim dołki kopie, ten sam w nie wpada', // zapas
+    'Co nagle, to po diable', 
+    'Nie ma dymu bez ognia.',
+    'Raz kozie śmierć.',
+    'Darowanemu koniowi w zęby się nie zagląda.',
+
+    // 'Gdzie kucharek sześć, tam nie ma co jeść',   // runda 1
+    // 'Bez pracy nie ma kołaczy',                   // runda 2
+    // 'Co nagle, to po diable',                     // zapas
+    // 'Kto pod kim dołki kopie, ten sam w nie wpada', // zapas
   ],
 
   // Licytacja wersów piosenki: tytuł, wykonawca, maks. liczba wersów do wylicytowania.

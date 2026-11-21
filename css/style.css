@@ -243,7 +243,8 @@ body.screen[data-view="score"] .tv-top { display: none; }
 /* Komunikat (toast) */
 .toast {
   position: absolute; left: 50%; bottom: calc(6 * var(--vu)); transform: translate(-50%, calc(4 * var(--vu)));
-  padding: calc(2 * var(--vu)) 4vw; border-radius: calc(2 * var(--vu)); font-size: calc(5 * var(--vu)); font-weight: 800; white-space: nowrap;
+  padding: calc(2 * var(--vu)) 4vw; border-radius: calc(2 * var(--vu)); font-size: calc(5 * var(--vu)); font-weight: 800;
+  width: max-content; max-width: 92vw; text-align: center; text-wrap: balance;   /* długi komunikat łamie się zamiast wychodzić poza ekran */
   opacity: 0; pointer-events: none; transition: opacity .3s, transform .3s;
   background: #333; box-shadow: 0 calc(1.5 * var(--vu)) calc(4 * var(--vu)) rgba(0,0,0,.5);
 }
@@ -579,6 +580,11 @@ body.screen[data-theme="rzutnik"] * { text-shadow: none !important; }
 }
 .kar-end { color: #ffe066; font-weight: 900; margin-top: calc(5 * var(--vu)); }
 .kar-view.instant .kar-track, .kar-view.instant .kar-line { transition: none !important; }
+/* Ekrany 4:3 (np. projektor 800×600): szerszy, niższy tekst i wyższe okno – długie wersy nie łamią się i nie nachodzą na siebie po powiększeniu */
+@media (max-aspect-ratio: 4/3) {
+  .kar-viewport { height: 56vh; }
+  .kar-line { max-width: 74vw; font-size: calc(5.4 * var(--vu)); padding: calc(1.6 * var(--vu)) 0; }
+}
 .kar-dots { display: flex; flex-wrap: wrap; justify-content: center; gap: calc(1.2 * var(--vu)); max-width: 80vw; }
 .kar-dots i { width: calc(1.6 * var(--vu)); height: calc(1.6 * var(--vu)); border-radius: 50%; background: rgba(255,255,255,.2); transition: background .4s, transform .4s; }
 .kar-dots i.past { background: rgba(255,255,255,.55); }
