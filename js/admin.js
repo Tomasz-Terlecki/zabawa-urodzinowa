@@ -56,6 +56,7 @@ function undo() {
   if (e.letter && e.prz === S.prz.index) {
     S.prz.guessed = S.prz.guessed.filter(x => x !== e.letter);
     if (e.solvedNow) S.prz.solved = false;
+    S.prz.team = e.team;   // kolej wraca do drużyny, której literę cofamy
     S.prz.msg = null;
   }
   if (e.kal) {
@@ -427,6 +428,7 @@ function przGuess(letter) {
   p.guessed.push(L);
   const solvedNow = [...T.lettersOf(text)].filter(T.isGuessable).every(l => p.guessed.includes(l));
   if (solvedNow) { p.solved = true; msg += ' – hasło odsłonięte!'; }
+  else { p.team = 1 - team; msg += `  ·  teraz zgaduje: ${S.teams[p.team].name}`; }   // drużyny zgadują na zmianę – także po trafieniu
   p.msg = { id: Date.now(), text: msg, kind };
 
   const extra = { letter: L, prz: p.index };

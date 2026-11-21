@@ -130,7 +130,7 @@ const Game = (() => {
       view: 'score',        // 'score' | 'akronimy' | 'przyslowia' | 'kalambury' | 'czolko'
       akr: { index: 0, showSkrot: false, showFull: false, seen: [], points: 2 },
       prz: { index: 0, team: 0, guessed: [], solved: false, msg: null, seen: [], pointValue: 2, solveBonus: 7 },
-      // Kalambury: drużyna `team` pokazuje hasła z zestawu sets[team]; results[zestaw][i] = 'ok' | 'fail'
+      // Kalambury: drużyna `team` opowiada hasła z zestawu sets[team]; results[zestaw][i] = 'ok' | 'fail'
       kal: { timer: Timer.make(120), team: 0, sets: ['A', 'B'], results: { A: {}, B: {} }, points: 1, showSummary: false },
       // Licytacja wersów: song = indeks w DATA.licytacja; bids = kolejne oferty
       // karaoke: tekst na TV po licytacji, kpos = indeks pierwszego wyświetlanego wersu (co 2)

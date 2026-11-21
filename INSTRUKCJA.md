@@ -19,9 +19,11 @@ Duże wyniki obu drużyn albo (przycisk **📋 Pokaż tabelę na TV**) tabela pu
 
 ### 1. Przysłowia – koło fortuny (2 rundy)
 Wybierz drużynę (`←` / `→`), wpisz literę (polskie: AltGr+A itd.) lub kliknij w panelu.
+- Drużyny zgadują **na zmianę**: po każdej literze – trafionej czy nie – kolej sama przechodzi na drugą drużynę („Cofnij” przywraca też kolej).
 - Zgaduje się **spółgłoski oraz Ą, Ę, Ó** – **2 pkt za każde wystąpienie** (np. 2× G = 4 pkt).
 - A, E, I, O, U, Y są zablokowane – odsłaniają się dopiero z całym hasłem.
-- Odgadnięte hasło: przycisk „✔ … odgaduje” = **+7 pkt**. „Następne przysłowie” = runda 2.
+- Po każdej **odgadniętej** literze (trafionej, nie pudle) ta drużyna może spróbować powiedzieć całe hasło. Wyjątek: gdy zostały zakryte już tylko samogłoski A, E, I, O, U, Y – wtedy hasło odsłania się samo, bez premii.
+- Odgadnięte hasło: przycisk „✔ … odgaduje” = **+7 pkt**. Zła odpowiedź – nic nie klikasz, kolej i tak jest już u rywali. „Następne przysłowie” = runda 2.
 
 ### 2. Licytacja wersów
 Zakładka „Licytacja” pokazuje wszystkie piosenki z `data/pytania.js`.
@@ -45,15 +47,17 @@ TV pokazuje bieżące pytanie i licznik poprawnych odpowiedzi (aplikacja nie gra
 **✔ [drużyna] (+2)** przyznaje punkty i od razu odsłania rozwinięcie. Wykorzystany akronim przywrócisz przyciskiem **↺ do wzięcia**.
 
 ### 6. Kalambury
-Drużyna 1 pokazuje hasła z zestawu A, drużyna 2 z zestawu B (można zamienić przyciskiem „⇄”).
+Drużyna wybiera **jedną osobę**, która przez całe 2 minuty **opowiada** hasła, nie używając żadnego słowa z hasła (ani jego innej formy). Padło słowo z hasła → hasło przepada (`Backspace`).
+Drużyna 1 opowiada hasła z zestawu A, drużyna 2 z zestawu B (można zamienić przyciskiem „⇄”).
 Przycisk **🖨 Karteczki** otwiera w nowej karcie hasła do druku – 4 na stronie A4, z liniami cięcia przez środek. Wybierasz zestaw A, B albo oba i drukujesz (albo „Zapisz jako PDF”) w skali 100%.
 1. Wybierz drużynę (`←` / `→`), `Spacja` = start zegara 2:00.
-2. W panelu widać duże bieżące hasło – osoba pokazująca czyta je z laptopa (TV go nie pokazuje).
+2. W panelu widać duże bieżące hasło – osoba opowiadająca czyta je z laptopa (TV go nie pokazuje).
 3. `Enter` = odgadnięte (od razu **+1 pkt**), `Backspace` = pomiń. Na TV rośnie licznik „Odgadnięte”.
 4. Pomyłkę poprawisz na liście (✔ / ✖ / ↺) – punkty dopasują się same.
 5. Po obu drużynach: **📊 Pokaż podsumowanie na TV**.
 
 ### 8. Czółko
+Drużyna odwraca się **tyłem** do TV, a nuci **tylko publiczność tej drużyny** (jej połowa sali – podział ogłaszasz na początku, przy nazwach drużyn). Reszta milczy, drużyna zgaduje tytuł.
 1. TV pokazuje numerki (1–liczba piosenek, losowo przypisane) i która drużyna wybiera.
 2. Kliknij numer wybrany przez drużynę → TV: „odwróćcie się tyłem”.
 3. `Spacja` / „Pokaż piosenkę” → TV pokazuje tytuł i wykonawcę, rusza zegar 45 s.

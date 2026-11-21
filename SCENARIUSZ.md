@@ -52,7 +52,7 @@ W nawiasach kwadratowych, np. [Drużyna 1], wstawiasz nazwy drużyn albo imiona.
 
 💡 Pauza na oklaski.
 
-> Przygotowaliśmy dla Was kilka konkurencji: będą przysłowia, śpiewanie, pytania na czas, skróty, pokazywanie i nucenie. Przyda się wiedza, refleks, słuch, a przede wszystkim – poczucie humoru.
+> Przygotowaliśmy dla Was kilka konkurencji: będą przysłowia, śpiewanie, pytania na czas, skróty, opowiadanie i nucenie. Przyda się wiedza, refleks, słuch, a przede wszystkim – poczucie humoru.
 
 ## Wybór drużyn
 
@@ -86,9 +86,13 @@ W nawiasach kwadratowych, np. [Drużyna 1], wstawiasz nazwy drużyn albo imiona.
 
 > Proszę Państwa, oto nasze drużyny! Po mojej lewej: **[nazwa drużyny 1]**! A po prawej: **[nazwa drużyny 2]**! Wielkie brawa dla obu!
 >
+> A teraz Wy, drodzy kibice – nikt dziś nie siedzi bezczynnie! Dzielimy publiczność na pół: **połowa po mojej lewej kibicuje drużynie [nazwa drużyny 1]**, a **połowa po prawej – drużynie [nazwa drużyny 2]**. Dopingujcie swoich głośno – w jednej z konkurencji Wasza pomoc będzie wręcz niezbędna!
+>
+> Sprawdźmy, która połowa głośniejsza! Kibice [nazwa drużyny 1]… (oklaski) A kibice [nazwa drużyny 2]… (oklaski) Remis – zapowiada się wyrównany wieczór!
+>
 > A teraz niech każdy zawodnik przedstawi się w jednym zdaniu: imię i za co najbardziej kocha naszą Solenizantkę. Zaczynamy od [nazwa drużyny 1]!
 
-💡 Przedstawianie ma być krótkie – jedno zdanie na osobę. Jeśli Mama gra, przedstaw ją jako „naszą gwiazdę wieczoru”.
+💡 Podział publiczności: najprościej po stronach sali (lewa / prawa, jak drużyny). Jeśli jedna połowa jest wyraźnie liczniejsza, przesadź kilka osób – w Czółku nuci tylko publiczność danej drużyny. Przedstawianie ma być krótkie – jedno zdanie na osobę. Jeśli Mama gra, przedstaw ją jako „naszą gwiazdę wieczoru”.
 
 ## Zasady ogólne
 
@@ -98,7 +102,7 @@ W nawiasach kwadratowych, np. [Drużyna 1], wstawiasz nazwy drużyn albo imiona.
 > 2. Wyniki widać przez cały czas na górze ekranu. Między konkurencjami pokażę też tabelę – kto ile zdobył w każdej grze.
 > 3. Zanim zaczniemy każdą konkurencję, wyjaśnię jej zasady. Jeśli coś będzie niejasne – pytajcie śmiało, zanim ruszy zegar.
 > 4. W drużynie można się naradzać, ale odpowiedź podaje jedna osoba. Liczy się pierwsza wypowiedziana odpowiedź.
-> 5. Publiczność może kibicować, ale **nie podpowiada**. Za podpowiadanie… drużyna, której publiczność podpowiedziała, nie dostaje punktów.
+> 5. Publiczność kibicuje swojej drużynie, ale **nie podpowiada** (chyba że zasady konkurencji mówią inaczej). Za podpowiadanie… drużyna, której publiczność podpowiedziała, nie dostaje punktów.
 > 6. W sprawach spornych ostatnie słowo ma prowadzący. A od decyzji prowadzącego można się odwołać tylko do Solenizantki!
 >
 > Gramy fair, gramy z uśmiechem, a wygrywa drużyna, która na koniec będzie miała więcej punktów. Zaczynamy!
@@ -114,17 +118,18 @@ W nawiasach kwadratowych, np. [Drużyna 1], wstawiasz nazwy drużyn albo imiona.
 > - Drużyny na zmianę podają **spółgłoski** – albo jedną z liter **Ą, Ę, Ó**.
 > - **Samogłosek A, E, I, O, U, Y nie zgadujemy** – pojawią się dopiero, kiedy odsłonimy całe hasło.
 > - Za każde wystąpienie litery w haśle dostajecie **2 punkty**. Jeśli w przysłowiu są trzy litery „K” – macie 6 punktów.
-> - Trafiliście? Zgadujecie dalej. Pudło – kolej przechodzi na drugą drużynę.
+> - Każda drużyna podaje **jedną literę** i kolej przechodzi na rywali – niezależnie od tego, czy litera była w haśle, czy nie.
 > - Litera, która już padła, nie liczy się drugi raz – słuchajcie uważnie przeciwników.
-> - W swojej kolejce możecie spróbować odgadnąć **całe hasło**. Za odgadnięcie przysłowia jest **7 punktów** premii. Jeśli się pomylicie – kolej przechodzi na rywali.
+> - Po każdej **trafionej** literze możecie spróbować odgadnąć **całe hasło**. Za odgadnięcie przysłowia jest **7 punktów** premii. Jeśli się pomylicie – gra toczy się dalej, kolej mają rywale.
+> - Jeśli po trafionej literze zostaną zakryte już tylko samogłoski, hasło odsłoni się samo – wtedy bez premii.
 >
 > Gramy dwie rundy – dwa przysłowia. Zaczyna drużyna [Drużyna 1]. Proszę o pierwszą spółgłoskę!
 
 🖥 **Przebieg:**
 
 - Wpisz literę z klawiatury (polskie znaki: AltGr+A, AltGr+E, AltGr+O) albo kliknij ją w panelu. Punkty liczą się same, TV pokazuje komunikat.
-- Pudło („Brak litery…”) → przełącz drużynę strzałką.
-- Odgadnięte hasło → przycisk **✔ [drużyna] odgaduje** (+7 pkt).
+- Po każdej literze (trafionej czy nie) panel sam przełącza drużynę na drugą. Strzałki `←` / `→` tylko do ręcznej korekty.
+- Po trafionej literze zapytaj tę drużynę, czy chce zgadywać całe hasło. Dobrze → przycisk **✔ [drużyna] odgaduje** (+7 pkt). Źle → nic nie klikasz, kolej jest już u rywali.
 - Gdy padną wszystkie spółgłoski, hasło odsłoni się samo (bez premii).
 - Nikt nie zgadł? **Odsłoń hasło (bez punktów)**.
 - **Następne przysłowie ▶** → runda 2. Drugą rundę zaczyna druga drużyna.
@@ -226,29 +231,30 @@ W nawiasach kwadratowych, np. [Drużyna 1], wstawiasz nazwy drużyn albo imiona.
 
 ## Konkurencja 5: Kalambury
 
-🖥 **Panel:** zakładka **6 · 🎭 Kalambury**. Drużyna 1 pokazuje hasła z zestawu A, drużyna 2 z zestawu B. Hasło widzi tylko osoba pokazująca – czyta je z laptopa. TV pokazuje zegar i licznik odgadniętych haseł.
+🖥 **Panel:** zakładka **6 · 🎭 Kalambury**. Drużyna 1 opowiada hasła z zestawu A, drużyna 2 z zestawu B. Hasło widzi tylko osoba opowiadająca – czyta je z laptopa (albo z wydrukowanych karteczek). TV pokazuje zegar i licznik odgadniętych haseł.
 
 > A teraz – kalambury! Każda drużyna ma **2 minuty**.
 >
-> - Jedna osoba z drużyny podchodzi do laptopa, czyta hasło i **pokazuje je swojej drużynie**.
-> - Po każdym odgadniętym haśle pokazujący się zmienia – podchodzi następna osoba.
-> - Pokazujemy **bez słów, bez dźwięków** i bez pokazywania liter. Można pokazać na palcach, ile słów ma hasło.
+> - Drużyna wybiera **jedną osobę**, która przez całe 2 minuty **opowiada** hasła reszcie drużyny.
+> - Opowiadamy, **nie używając żadnego słowa z hasła** – ani w całości, ani w innej formie. Hasło „tort urodzinowy”? Nie wolno powiedzieć „tort” ani „urodziny”.
+> - Nie wolno też literować, mówić „zaczyna się na…” ani pokazywać na migi pierwszej litery.
 > - Każde odgadnięte hasło to **1 punkt**.
+> - Opowiadający użył słowa z hasła? Hasło przepada – idziemy dalej.
 > - Hasło za trudne? Można je **pominąć** – ale czas leci dalej.
-> - Drużyna przeciwna i publiczność – oglądają w ciszy!
+> - Drużyna przeciwna pilnuje, czy nie padło zakazane słowo!
 >
-> Pierwsza pokazuje drużyna [Drużyna 1]. Gotowi? Start!
+> Zaczyna drużyna [Drużyna 1]. Kto opowiada? Gotowi? Start!
 
 🖥 **Przebieg:**
 
 - Wybierz drużynę (`←` / `→`), `Spacja` = start zegara.
-- `Enter` = odgadnięte (od razu +1 pkt), `Backspace` = pomiń.
+- `Enter` = odgadnięte (od razu +1 pkt), `Backspace` = pomiń (także gdy padło słowo z hasła).
 - Po czasie zmień drużynę i znowu `Spacja`.
 - Po obu drużynach → **📊 Pokaż podsumowanie na TV**.
 
 💡 Zegar `Spacja` też zatrzymuje – przydaje się przy zamieszaniu. Pomyłkę poprawisz na liście (✔ / ✖ / ↺).
 
-> (podsumowanie) Drużyna [Drużyna 1] odgadła [liczba] haseł, drużyna [Drużyna 2] – [liczba]. Wielkie brawa dla aktorów!
+> (podsumowanie) Drużyna [Drużyna 1] odgadła [liczba] haseł, drużyna [Drużyna 2] – [liczba]. Wielkie brawa dla opowiadających!
 
 ## Konkurencja 6: Czółko – nucimy piosenki
 
@@ -258,24 +264,25 @@ W nawiasach kwadratowych, np. [Drużyna 1], wstawiasz nazwy drużyn albo imiona.
 >
 > Pod każdym numerkiem na ekranie kryje się polska piosenka.
 >
-> - Drużyna wybiera numerek, a potem **cała drużyna odwraca się tyłem** do telewizora.
-> - Na ekranie pojawi się tytuł i wykonawca – widzi go publiczność i drużyna przeciwna.
-> - Publiczność i rywale **nucą melodię** – bez słów! Samo „na-na-na” albo „mmm”.
+> - Drużyna wybiera numerek, a potem **cała drużyna odwraca się TYŁEM** do telewizora.
+> - Na ekranie pojawi się tytuł i wykonawca – widzą go wszyscy oprócz odwróconej drużyny.
+> - **Nuci tylko publiczność tej drużyny** – Wasza połowa sali! Bez słów, samo „na-na-na” albo „mmm”.
+> - Druga połowa publiczności i drużyna przeciwna – **cisza**!
 > - Drużyna odwrócona tyłem ma **45 sekund**, żeby odgadnąć **tytuł piosenki**.
 > - Odgadnięta piosenka to **3 punkty**.
-> - Potem wybiera druga drużyna – na zmianę.
+> - Potem wybiera druga drużyna – i nuci jej publiczność. Na zmianę.
 >
-> Uwaga dla nucących: śpiewanie słów to sabotaż! Nucimy uczciwie, nawet dla rywali. Drużyna [nazwa], wybierzcie numerek!
+> Kibice, teraz wszystko w Waszych rękach – a raczej w gardłach! Śpiewanie słów to oszustwo – wtedy piosenka przepada. Drużyna [nazwa], wybierzcie numerek!
 
 🖥 **Przebieg (każda piosenka):**
 
-1. Kliknij numer wybrany przez drużynę → TV: „odwróćcie się tyłem”.
+1. Kliknij numer wybrany przez drużynę → TV: „odwróćcie się tyłem”. Przypomnij, która połowa publiczności nuci.
 2. Gdy stoją tyłem → `Spacja` / **▶ Pokaż piosenkę i start czasu** – tytuł na TV, rusza zegar.
 3. **✔ Odgadli** (+3 pkt) albo **✖ Nie odgadli**. Kolej drugiej drużyny przechodzi sama.
 
 💡 22 piosenki = po 11 na drużynę. Nie musicie zagrać wszystkich – zakończ po równej liczbie dla obu drużyn. Jeśli chcesz uznawać też samego wykonawcę – ogłoś to przed pierwszą piosenką i trzymaj się tego do końca.
 
-> (na koniec) To był koncert! Brawa dla nucących i dla zgadujących!
+> (na koniec) To był koncert! Brawa dla obu chórów kibiców i dla zgadujących!
 
 ## Konkurencja dodatkowa ★: Zdjęcia mamy
 

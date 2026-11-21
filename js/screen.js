@@ -284,7 +284,7 @@ function czoStageHTML() {
   }
   if (c.phase === 'song' && song) {
     return `<div class="czo-song">
-      <div class="akr-label">Nucimy!</div>
+      <div class="akr-label">Nucą kibice drużyny <span style="color:${T.esc(team.color)}">${T.esc(team.name)}</span>!</div>
       <div class="czo-title">${T.esc(song.tytul)}</div>
       <div class="czo-author">${T.esc(song.autor)}</div>
       ${timerHTML()}</div>`;
